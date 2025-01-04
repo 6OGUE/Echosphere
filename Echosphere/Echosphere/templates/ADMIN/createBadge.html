@@ -1,0 +1,44 @@
+{% extends 'ADMIN/common.html' %}
+{% block content %}
+
+
+
+
+<section class="contact-section section-padding pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-12 mx-auto">
+        <div class="section-title-wrap mb-5">
+          <h4 class="section-title" style="position: relative;left:350px;"> Create Badge</h4>
+        </div>
+
+        <form action="#" method="post" class="custom-form contact-form" role="form">
+          {% csrf_token %}
+          <div class="row">
+             
+
+              <div class="col-lg-12 col-12">
+                
+                
+                <div class="form-floating">
+                    <input type="text" name="badge" id="name" class="form-control" placeholder="Name" required="">
+                    
+                    <label for="floatingInput">Badge</label><br>
+                </div>
+
+              </div>
+
+              <div class="col-lg-4 col-12 ms-auto">
+                  <button type="submit" class="form-control" style="position: relative;right:315px;">Submit</button>
+              </div>
+
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

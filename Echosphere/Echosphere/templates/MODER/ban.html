@@ -1,0 +1,314 @@
+{% extends 'MODER/common.html' %}
+{% block content %}
+
+
+
+
+
+<style>
+  @import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+
+  * {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .rwd-table {
+    margin: auto;
+    min-width: 300px;
+    max-width: 100%;
+    border-collapse: collapse;
+  }
+
+  .rwd-table tr:first-child {
+    border-top: none;
+    background: #00a0cc;
+    color: #fff;
+  }
+
+  .rwd-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f5f9fc;
+  }
+
+  .rwd-table tr:nth-child(odd):not(:first-child) {
+    background-color: #ebf3f9;
+  }
+
+  .rwd-table th {
+    display: none;
+  }
+
+  .rwd-table td {
+    display: block;
+  }
+
+  .rwd-table td:first-child {
+    margin-top: .5em;
+  }
+
+  .rwd-table td:last-child {
+    margin-bottom: .5em;
+  }
+
+  .rwd-table td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+  }
+
+  .rwd-table th,
+  .rwd-table td {
+    text-align: left;
+  }
+
+  .rwd-table {
+    color: #333;
+    border-radius: .4em;
+    overflow: hidden;
+  }
+
+  .rwd-table tr {
+    border-color: #bfbfbf;
+  }
+
+  .rwd-table th,
+  .rwd-table td {
+    padding: .5em 1em;
+  }
+
+  @media screen and (max-width: 601px) {
+    .rwd-table tr:nth-child(2) {
+      border-top: none;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .rwd-table tr:hover:not(:first-child) {
+      background-color: #d8e7f3;
+    }
+
+    .rwd-table td:before {
+      display: none;
+    }
+
+    .rwd-table th,
+    .rwd-table td {
+      display: table-cell;
+      padding: .25em .5em;
+    }
+
+    .rwd-table th:first-child,
+    .rwd-table td:first-child {
+      padding-left: 0;
+    }
+
+    .rwd-table th:last-child,
+    .rwd-table td:last-child {
+      padding-right: 0;
+    }
+
+    .rwd-table th,
+    .rwd-table td {
+      padding: 1em !important;
+    }
+  }
+
+
+
+  h1 {
+    text-align: center;
+    font-size: 2.4em;
+    color: #000000;
+  }
+
+  .container {
+    display: block;
+    text-align: center;
+  }
+
+  h3 {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 1.5em;
+    color: #cecece;
+  }
+
+  h3:before {
+    content: "\25C0";
+    position: absolute;
+    left: -50px;
+    -webkit-animation: leftRight 2s linear infinite;
+    animation: leftRight 2s linear infinite;
+  }
+
+  h3:after {
+    content: "\25b6";
+    position: absolute;
+    right: -50px;
+    -webkit-animation: leftRight 2s linear infinite reverse;
+    animation: leftRight 2s linear infinite reverse;
+  }
+
+  @-webkit-keyframes leftRight {
+    0% {
+      -webkit-transform: translateX(0)
+    }
+
+    25% {
+      -webkit-transform: translateX(-10px)
+    }
+
+    75% {
+      -webkit-transform: translateX(10px)
+    }
+
+    100% {
+      -webkit-transform: translateX(0)
+    }
+  }
+
+  @keyframes leftRight {
+    0% {
+      transform: translateX(0)
+    }
+
+    25% {
+      transform: translateX(-10px)
+    }
+
+    75% {
+      transform: translateX(10px)
+    }
+
+    100% {
+      transform: translateX(0)
+    }
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg" style="background-image: url('../static/images/ftr.jpg'); height: 180px;">
+  <div class="container">
+    <a href="#" style="font-size: 50px;color: rgb(252, 252, 252);position: relative;right: 300px;top:10px;"><b>ECHOSPHERE</b>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span></button>
+
+    <div class="collapse navbar-collapse" id="navbarNav" style="position: relative;left: 430px;">
+      <ul class="navbar-nav ms-lg-auto">
+        <li class="nav-item">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="/modDash" style="color: rgb(113, 195, 25);font-size: 25px;position: relative;right: 50px;">HOME</a>
+
+          <li class="nav-item" style="position: relative;left: 90px;">
+            <a class="btn custom-btn custom-border-btn smoothscroll" href="/viewachievments" style="color: rgb(113, 195, 25);font-size: 25px;position: relative;right: 136px;">BADGES</a>
+          </li>
+
+        <li class="nav-item">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="/modViewUsers" style="color: rgb(113, 195, 25);font-size: 25px;position: relative;right: 40px;">ASSIGN&nbsp;BADGES</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="/banUsers" style="color: rgb(113, 195, 25);font-size: 25px;position: relative;right: 20px;">BAN</a>
+        </li>
+
+     
+
+        {% comment %} <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+
+          <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="listing-page.html">Listing Page</a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="detail-page.html">Detail Page</a>
+            </li>
+          </ul>
+        </li> {% endcomment %}
+
+     
+      </ul>
+
+  
+
+      <div class="ms-4">
+        <a class="btn custom-btn custom-border-btn smoothscroll" href="/" style="color: rgb(113, 195, 25);font-size: 25px;position: relative;right: 30px;top: 0px;">LOG&nbsp;OUT</a>&nbsp;&nbsp;&nbsp;
+      </div>
+      {% for i in uid %}
+      <ul class="navbar-nav ms-lg-auto">
+        
+        
+      </ul>
+      {% endfor %}
+
+      <div class="ms-4">
+
+      </div>
+
+      
+    </div>
+  </div>
+</nav>
+
+
+<section class="contact-section section-padding pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-12 mx-auto">
+        <div class="container">
+          <h1 style="color: white;">BAN USERS</h1><br>
+          <table class="rwd-table" style="width: 6100px;">
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>User Type</th>
+                <th>Address</th>
+                {% comment %} <th>Badge</th> {% endcomment %}
+                <th>Ban</th>
+              </tr>
+              {% for i in data %}
+              {% if i.type != 'Moderator'  %}
+              <tr>
+                <td>{{i.name}} </td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.loginid.user_type}}</td>
+                <td>{{i.address}}</td>
+{% comment %}                
+                <td>
+                  <a href="/assignBadge?id={{ i.loginid_id }}"><button type="submit" class="btn btn-outline-primary text-dark">Assign</button></a>
+                </td> {% endcomment %}
+               {% if i.type != 'Banned' %}
+                <td>
+                  <a href="/ban?id={{ i.loginid_id }}"><button class="btn btn-outline-danger text-dark">Ban</button></a>
+                </td>
+                {% elif i.type == 'Banned'  %}
+                <td>
+                  <a href="/unban?id={{ i.loginid_id }}"><button class="btn btn-outline-danger text-dark">Unban</button></a>
+                </td>
+                {% else %}
+                <td>
+                  <a href="/ban?id={{ i.loginid_id }}"><button class="btn btn-outline-danger text-dark">Ban</button></a>
+                </td>
+                {% endif %} 
+
+
+              {% endif %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

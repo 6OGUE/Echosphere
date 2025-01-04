@@ -1,0 +1,274 @@
+{% extends 'USER/common.html' %}
+{% block content %}
+{% for message in messages %}
+{% endfor %}
+{% load static %}
+
+<nav class="navbar navbar-expand-lg" style="background-image: url('../static/images/ftr.jpg'); height: 210px;">
+  <div class="container">
+    <a href="#" style="font-size: 50px;color: rgb(252, 252, 252);position: relative;right: 300px;top:10px;"><b>ECHOSPHERE</b>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span></button>
+
+    <div class="collapse navbar-collapse" id="navbarNav" style="position: relative;left:190px;top: 25px;">
+      <ul class="navbar-nav ms-lg-auto">
+        <li class="nav-item">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="/userDash" style="color: rgb(255, 255, 255);font-size: 25px; position: relative;left: 60px; top: 0px;">HOME</a>
+        </li>
+
+        <li class="nav-item dropdown" style="position: relative;left: 50px;">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="#" style="color: rgb(255, 255, 255);font-size: 25px; position: relative;left: 20px;">POST</a>&nbsp;&nbsp;&nbsp;
+          <ul class="dropdown-menu dropdown-menu-light">
+            <li>
+              <a class="dropdown-item" href="/viewPost" style="font-size: 20px;"><b>MY POSTS</b></a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/addPost" style="font-size: 20px;"><b>Add Post</b></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" style="position: relative;left: 80px;">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="/viewDonations" style="color: rgb(255, 255, 255);font-size: 25px;position: relative; top: 0px; right: 19px;">DONATIONS</a>
+        </li>
+        <li class="nav-item" style="position: relative;left: 90px;">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="/viewachievmentsus" style="color: rgb(255, 255, 255);font-size: 25px;position: relative; top: 0px; right: 19px;">BADGES</a>
+        </li>
+      </ul>
+
+      <div class="nav-item" style="position: relative;bottom: 0px;left: 80px;">
+        <a class="btn custom-btn custom-border-btn smoothscroll" href="/confirm" style="color: rgb(255, 255, 255);font-size: 25px;">MOD&nbsp;REQ</a>
+      </div>
+
+      <div class="nav-item" style="position: relative;bottom: 11px;left: 70px;">
+         <a class="btn custom-btn custom-border-btn smoothscroll" href="/" style="color: rgb(255, 255, 255);font-size: 25px;position: relative;left: 20px; top: 10px;">LOG&nbsp;OUT</a>
+      </div>
+      {% for i in uid %}
+     <p style="font-size: 30px; font-weight: 600; color: rgb(255, 255, 255);position: relative;bottom: 5px; float: right; padding-top: 0px;left: 100px;">&nbsp;&nbsp;🧑🏻&nbsp;{{i.name}}</p>
+      {% endfor %}
+    </div>
+  </div>
+</nav>
+
+<style>
+
+    @import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+  
+    * {
+      font-family: 'Open Sans', sans-serif;
+    }
+  
+    .rwd-table {
+      margin: auto;
+      min-width: 300px;
+      max-width: 100%;
+      border-collapse: collapse;
+    }
+  
+    .rwd-table tr:first-child {
+      border-top: none;
+      background: #00a0cc;
+      color: #fff;
+    }
+  
+    .rwd-table tr {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      background-color: #f5f9fc;
+    }
+  
+    .rwd-table tr:nth-child(odd):not(:first-child) {
+      background-color: #ebf3f9;
+    }
+  
+    .rwd-table th {
+      display: none;
+    }
+  
+    .rwd-table td {
+      display: block;
+    }
+  
+    .rwd-table td:first-child {
+      margin-top: .5em;
+    }
+  
+    .rwd-table td:last-child {
+      margin-bottom: .5em;
+    }
+  
+    .rwd-table td:before {
+      content: attr(data-th) ": ";
+      font-weight: bold;
+      width: 120px;
+      display: inline-block;
+      color: #000;
+    }
+  
+    .rwd-table th,
+    .rwd-table td {
+      text-align: left;
+    }
+  
+    .rwd-table {
+      color: #333;
+      border-radius: .4em;
+      overflow: hidden;
+    }
+  
+    .rwd-table tr {
+      border-color: #bfbfbf;
+    }
+  
+    .rwd-table th,
+    .rwd-table td {
+      padding: .5em 1em;
+    }
+  
+    @media screen and (max-width: 601px) {
+      .rwd-table tr:nth-child(2) {
+        border-top: none;
+      }
+    }
+  
+    @media screen and (min-width: 600px) {
+      .rwd-table tr:hover:not(:first-child) {
+        background-color: #d8e7f3;
+      }
+  
+      .rwd-table td:before {
+        display: none;
+      }
+  
+      .rwd-table th,
+      .rwd-table td {
+        display: table-cell;
+        padding: .25em .5em;
+      }
+  
+      .rwd-table th:first-child,
+      .rwd-table td:first-child {
+        padding-left: 0;
+      }
+  
+      .rwd-table th:last-child,
+      .rwd-table td:last-child {
+        padding-right: 0;
+      }
+  
+      .rwd-table th,
+      .rwd-table td {
+        padding: 1em !important;
+      }
+    }
+  
+  
+  
+    h1 {
+      text-align: center;
+      font-size: 2.4em;
+      color: #000000;
+    }
+  
+    .container {
+      display: block;
+      text-align: center;
+    }
+  
+    h3 {
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      font-size: 1.5em;
+      color: #cecece;
+    }
+  
+    h3:before {
+      content: "\25C0";
+      position: absolute;
+      left: -50px;
+      -webkit-animation: leftRight 2s linear infinite;
+      animation: leftRight 2s linear infinite;
+    }
+  
+    h3:after {
+      content: "\25b6";
+      position: absolute;
+      right: -50px;
+      -webkit-animation: leftRight 2s linear infinite reverse;
+      animation: leftRight 2s linear infinite reverse;
+    }
+  
+    @-webkit-keyframes leftRight {
+      0% {
+        -webkit-transform: translateX(0)
+      }
+  
+      25% {
+        -webkit-transform: translateX(-10px)
+      }
+  
+      75% {
+        -webkit-transform: translateX(10px)
+      }
+  
+      100% {
+        -webkit-transform: translateX(0)
+      }
+    }
+  
+    @keyframes leftRight {
+      0% {
+        transform: translateX(0)
+      }
+  
+      25% {
+        transform: translateX(-10px)
+      }
+  
+      75% {
+        transform: translateX(10px)
+      }
+  
+      100% {
+        transform: translateX(0)
+      }
+    }
+</style>
+  
+  
+<section class="contact-section section-padding pt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-12 mx-auto">
+          <div class="container"><br>
+            <h1 style="color: white;">DONATIONS</h1><br>
+            <table class="rwd-table" style="width: 6100px;">
+              <tbody>
+                <tr>
+                  <th>Donated By</th>
+                  <th>Post</th>
+                  <th>Amount</th>
+                  <th>Withdraw</th>
+                </tr>
+                {% for i in donations %}
+                {% if i.status == 'pending' %}
+                <tr>
+                  <td>{{i.userId.name}} </td>
+                  <td><img src="../static/media/{{i.postId.image}}" height="75" width="100"></td>
+                  <td>{{i.amount}}</td>
+                  <td><a href="/withdraw?id={{ i.id }}"><button type="submit" class="btn btn-outline-primary text-dark">Withdraw</button></a></td>
+                  </tr>
+                  {% endif %}
+                {% endfor %}                  
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </section>
+  
+{% endblock %}

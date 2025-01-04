@@ -1,0 +1,61 @@
+{% extends 'BANNED/common.html' %}
+{% block content %}
+
+
+<section class="contact-section section-padding pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-12 mx-auto">
+        <div class="section-title-wrap mb-5">
+          <h4 class="section-title"> Add Post </h4>
+        </div>
+
+        <form action="#" method="post" class="custom-form contact-form" role="form" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+                  <div class="form-floating">
+                      <input type="file" name="image" id="full-name" class="form-control" placeholder="Full Name" required="">
+                      
+                      <label for="floatingInput">Post</label>
+                  </div>
+              </div>
+
+              <div class="col-lg-6 col-md-6 col-12"> 
+                  <div class="form-floating">
+                      <input type="text" name="title" id="email" class="form-control" placeholder="Email address" required="">
+                      
+                      <label for="floatingInput">Title</label>
+                  </div>
+              </div>
+           
+            
+            
+
+              <div class="col-lg-12 col-12">
+                
+                
+                <div class="form-floating">
+                  <input type="tag" name="tag" id="full-name" class="form-control" placeholder="Full Name" required="">
+                      
+                  <label for="floatingInput">Tag</label>
+                </div>
+
+              </div>
+
+              <div class="col-lg-4 col-12 ms-auto">
+                  <button type="submit" class="form-control">Submit</button>
+              </div>
+
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+{% endblock %}

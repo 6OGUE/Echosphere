@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moderator Confirmation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Include Font Awesome for icons -->
+    <style>
+        body {
+            background-image: url('../static/images/ftr.jpg');
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .dialog-box {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 90px; /* Increased padding */
+            text-align: center;
+            width: 1000px;
+
+        }
+
+        .related-symbol {
+            color: #007bff;
+            font-size: 70px; /* Increased font size */
+            margin-bottom: 30px; /* Increased margin */
+        }
+
+        h2 {
+            color: #333;
+            font-size: 45px; /* Increased font size */
+            margin-bottom: 30px; /* Increased margin */
+        }
+
+        p {
+            color: #666;
+            font-size: 30px; /* Increased font size */
+            margin-bottom: 40px; /* Increased margin */
+        }
+
+        .confirm-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50px; /* Increased border radius */
+            padding: 16px 32px; /* Increased padding */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 28px; /* Increased font size */
+        }
+
+        .confirm-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="dialog-box">
+        <span class="related-symbol"><i class="fas fa-handshake"></i></span> <!-- Related symbol -->
+        <h2>REQUEST CONFIRMATION</h2>
+        <p>Moderators are Responsible for the Overall Content Moderation of This Website and Enjoy Additional Perks for Their Efforts. Before Proceeding, Make Sure you are Ready for it.</p>
+        <button class="confirm-btn" id="confirm-btn">CONFIRM</button>
+    </div>
+
+    <script>
+        document.getElementById("confirm-btn").addEventListener("click", function() {
+            window.location.href = "/userRequest"; 
+        });
+    </script>
+</body>
+</html>

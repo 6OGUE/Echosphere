@@ -1,0 +1,108 @@
+{% extends 'USER/common.html' %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg" style="background-image: url('../static/images/ftr.jpg'); height: 210px;">
+  <div class="container">
+    <a href="#" style="font-size: 50px;color: rgb(252, 252, 252);position: relative;right: 300px;top:10px;"><b>ECHOSPHERE</b>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span></button>
+
+    <div class="collapse navbar-collapse" id="navbarNav" style="position: relative;left:220px;top: 35px;">
+      <ul class="navbar-nav ms-lg-auto">
+        <li class="nav-item">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="/userDash" style="color: rgb(255, 255, 255);font-size: 25px; position: relative;left: 60px;position: relative;bottom: 10px;">HOME</a>
+        </li>
+
+        <li class="nav-item dropdown" style="position: relative;left: 50px;">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="#" style="color: rgb(255, 255, 255);font-size: 25px; position: relative;left: 20px; bottom: 10px;">POST</a>&nbsp;&nbsp;&nbsp;
+          <ul class="dropdown-menu dropdown-menu-light">
+            <li>
+              <a class="dropdown-item" href="/viewPost" style="font-size: 20px;"><b>MY POSTS</b></a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/addPost" style="font-size: 20px;"><b>Add Post</b></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" style="position: relative;left: 80px;">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="/viewDonations" style="color: rgb(255, 255, 255);font-size: 25px;position: relative;bottom: 10px;">DONATIONS</a>
+        </li>
+        <li class="nav-item" style="position: relative;left: 90px;">
+          <a class="btn custom-btn custom-border-btn smoothscroll" href="/viewachievmentsus" style="color: rgb(255, 255, 255);font-size: 25px;position: relative;bottom: 10px;">BADGES</a>
+        </li>
+      </ul>
+
+      <div class="ms-4" style="position: relative;bottom: 11px;left: 80px;">
+        <a class="btn custom-btn custom-border-btn smoothscroll" href="/confirm" style="color: rgb(255, 255, 255);font-size: 25px;">MOD&nbsp;REQ</a>
+      </div>
+
+      <div class="ms-4" style="position: relative;bottom: 11px;left: 70px;">
+         <a class="btn custom-btn custom-border-btn smoothscroll" href="/" style="color: rgb(255, 255, 255);font-size: 25px;">LOG&nbsp;OUT</a>
+      </div>
+      {% for i in uid %}
+     <p style="font-size: 30px; font-weight: 600; color: rgb(255, 255, 255);position: relative;bottom: 5px; float: right; padding-top: 0px;left: 100px;">&nbsp;&nbsp;🧑🏻&nbsp;{{i.name}}</p>
+      {% endfor %}
+    </div>
+  </div>
+</nav>
+<section class="contact-section section-padding pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-12 mx-auto">
+        <div class="section-title-wrap mb-5"><br>
+          <h4 class="section-title" style="position: relative;left:370px;"> Add Post </h4>
+        </div>
+
+        <form action="#" method="post" class="custom-form contact-form" role="form" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+                  <div class="form-floating">
+                      <input type="file" name="image" id="full-name" class="form-control" placeholder="Full Name" required="">
+                      
+                      <label for="floatingInput">Post</label>
+                  </div>
+              </div>
+
+              <div class="col-lg-6 col-md-6 col-12"> 
+                  <div class="form-floating">
+                      <input type="text" name="title" id="email" class="form-control" placeholder="Email address" required="">
+                      
+                      <label for="floatingInput">Title</label>
+                  </div>
+              </div>
+           
+            
+            
+
+              <div class="col-lg-12 col-12">
+                
+                
+                <div class="form-floating">
+                  <input type="tag" name="tag" id="full-name" class="form-control" placeholder="Full Name" required="">
+                      
+                  <label for="floatingInput">Tag</label>
+                </div>
+
+              </div>
+
+              <div class="col-lg-4 col-12 ms-auto">
+                  <button type="submit" class="form-control" style="position: relative;right: 320px;">Submit</button>
+              </div>
+             <hui style="position: relative;top: 100px;right: -135px; color: white;"  >*Please ensure your posts are in the resolution - 1980x1080 for the Best Viewing Experience.</hui>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+{% endblock %}

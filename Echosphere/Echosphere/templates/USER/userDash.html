@@ -1,0 +1,222 @@
+{% for message in messages %}
+  <script>
+    alert('{{message}}')
+
+    document.addEventListener('click', function(event) {
+    const target = event.target;
+    if (target.classList.contains('like-link') || target.classList.contains('report-link')) {
+      event.preventDefault();
+    }
+  });
+  </script>
+{% endfor %}
+{% load static %}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECHOSPHERE</title>
+  <!-- CSS FILES -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+  <link href="{% static 'css/templatemo-pod-talk.css' %}" rel="stylesheet">
+  <style>
+    /* Adjustments for Instagram-like layout */
+    body::-webkit-scrollbar {
+  display: none;}
+    body {
+      background-image: url('../static/images/qwee.jpg');
+  position: relative;
+  bottom: 20px;
+  overflow: auto; /* Allow scrolling */
+  width: calc(100% - 16px); /* Adjust for scrollbar width */
+  height: calc(100% - 16px); /* Adjust for scrollbar height */
+    }
+
+    .navbar {
+      background-image: url('../static/images/ftr.jpg');
+      height: 210px;
+      width: 2320px;
+    }
+
+    .feed-container {
+      max-height: 1000px; /* Adjust as needed */
+      width: 1400px;
+      }
+
+      #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        #back-to-top:hover {
+            background-color: #0056b3;
+        }
+
+    .post {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    a{
+      color: rgb(255, 255, 255);
+    }
+
+    .post-content {
+  font-size: 24px; /* Increase font size for post content */
+}
+
+    /* Adjustments for navigation items */
+    .navbar-brand,
+    .nav-link {
+      font-size: 30px; /* Increase font size for navbar */
+      color: #f8f8f8;
+      position: relative;
+      z-index: 1; /* Ensure the text is above the oval background */
+    }
+
+    
+
+    .section-title {
+      position: relative;
+      left: 600px;
+    }
+  </style>
+</head>
+<body>
+  <button id="back-to-top" style="font-size: 30px; background-color: white;" onclick="topFunction()">↖️</button>
+
+    <script>
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+  </script>
+  <nav class="navbar navbar-expand-lg" style="background-image: url('../static/images/ftr.jpg'); height: 210px;">
+    <div class="container">
+      <a href="#" style="font-size: 50px;color: rgb(252, 252, 252);position: relative;right: 300px;top:10px;"><b>ECHOSPHERE</b>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span></button>
+
+      <div class="collapse navbar-collapse" id="navbarNav" style="position: relative;left:220px;top: 25px;">
+        <ul class="navbar-nav ms-lg-auto">
+          <li class="nav-item">
+            <a class="btn custom-btn custom-border-btn smoothscroll" href="#" style="color: rgb(255, 255, 255);font-size: 25px; position: relative;left: 60px;">HOME</a>
+          </li>
+
+          <li class="nav-item dropdown" style="position: relative;left: 50px;">
+            <a class="btn custom-btn custom-border-btn smoothscroll" href="#" style="color: rgb(255, 255, 255);font-size: 25px; position: relative;left: 20px;">POST</a>&nbsp;&nbsp;&nbsp;
+            <ul class="dropdown-menu dropdown-menu-light">
+              <li>
+                <a class="dropdown-item" href="/viewPost" style="font-size: 20px;"><b>MY POSTS</b></a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/addPost" style="font-size: 20px;"><b>Add Post</b></a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item" style="position: relative;left: 80px;">
+            <a class="btn custom-btn custom-border-btn smoothscroll" href="/viewDonations" style="color: rgb(255, 255, 255);font-size: 25px;">DONATIONS</a>
+          </li>
+          <li class="nav-item" style="position: relative;left: 90px;">
+            <a class="btn custom-btn custom-border-btn smoothscroll" href="/viewachievmentsus" style="color: rgb(255, 255, 255);font-size: 25px;">BADGES</a>
+          </li>
+        </ul>
+
+        <div class="ms-4" style="position: relative;bottom: 11px;left: 80px;">
+           <a class="btn custom-btn custom-border-btn smoothscroll" href="/confirm" style="color: rgb(255, 255, 255);font-size: 25px;">MOD&nbsp;REQ</a>
+        </div>
+
+        <div class="ms-4" style="position: relative;bottom: 11px;left: 70px;">
+           <a class="btn custom-btn custom-border-btn smoothscroll" href="/" style="color: rgb(255, 255, 255);font-size: 25px;">LOG&nbsp;OUT</a>
+        </div>
+        {% for i in uid %}
+       <p style="font-size: 30px; font-weight: 600; color: rgb(255, 255, 255);position: relative;bottom: 5px; float: right; padding-top: 0px;left: 100px;">&nbsp;&nbsp;🧑🏻&nbsp;{{i.name}}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </nav>
+
+  <br><br>
+
+  <section class="trending-podcast-section section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-12">
+          <div class="section-title-wrap mb-5">
+            <h4 class="section-title">FEEDS</h4>
+          </div>
+        </div>
+        <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+          <div class="feed-container">
+            <!-- Sample posts -->
+            {% for i in post %}
+            {% if i.registerId.type != 'Banned' %}
+            <div class="post" style="height: 1380px; background-color: black;position:relative;left:10px;bottom: 20px;">
+              <ho class="mb-2" style="font-size: 50px;position: relative; color: rgb(255, 255, 255);font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">👤 {{ i.registerId.name }}</ho>
+              <div class="post-image-wrap">
+                <br>
+                <a href="../static/media/{{i.image}}"><img src="../static/media/{{i.image}}" class="post-image img-fluid" alt=""></a>
+              </div>
+              <div class="post-content"><br>
+                <h5 class="mb-2" style="color: rgb(255, 255, 255);font-size: 40px; font-family:Bell MT;">{{ i.title }}</h5>
+                <div class="profile-block d-flex">
+                  <p style="font-size: 20px;">{{ i.tag }}</p>
+                </div>
+                <p class="like-link" id="likebutton" style="font-size: 80px;"><a href="/like?pid={{i.id}}">🩷{{ i.like_count }}</a></p>
+                <p class="mb-0"style="font-size: 80px;position: relative;bottom:130px;left: 300px;"><a href="/usercomment?id={{i.id}}">💬{{ i.comment }}</a></p>
+                
+                {% for j in uid %}
+                {% if i.registerId.loginid != j.loginid %}
+                <span>
+                  <p class="like-link" id="reportButton" style="font-size: 80px;position: relative;bottom: 257px;left: 570px;"><a href="/userreport?pid={{i.id}}">⚠️<hs style="font-size: 30px;">REPORT</hs></a></p>
+                  <a href="/donate?id={{ i.id }}"><button style="background-color: blue; position: relative;bottom: 389px;left: 900px; color: white;width: 400px;height: 100px; padding: 10px 20px; border: none; border-radius: 5px; font-size: 25px; margin-top: 10px;">DONATE💵</button></a>
+                </span>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <!-- End of Sample posts -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAVASCRIPT FILES -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

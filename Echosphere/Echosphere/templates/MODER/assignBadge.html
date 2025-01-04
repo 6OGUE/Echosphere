@@ -1,0 +1,48 @@
+{% extends 'MODER/common.html' %}
+{% block content %}
+  <section class="contact-section section-padding pt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-12 mx-auto">
+          <div class="section-title-wrap mb-5">
+            <h4 class="section-title" style="color: rgb(0, 0, 0);position: relative;left: 300px;">ASSIGN BADGE</h4>
+          </div>
+
+          <form action="#" method="post" class="custom-form contact-form" role="form">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-12 col-12">
+                <div class="form-floating">
+                  <div class="form-group">
+                    {% comment %} <input class="form-control-input" type="text" id="fname" placeholder="Name" required /> {% endcomment %}
+                    <select name="badge" style="display: block;
+                    width: 100%;
+                    padding: 0.375rem 0.75rem;
+                    font-size: 1rem;
+                    line-height: 1.5;
+                    color: #495057;
+                    background-color: #fff;
+                    background-clip: padding-box;
+                    border: 1px solid #ced4da;
+                    border-radius: 0.25rem;
+                    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">
+                    <option value="" disabled selected>--Select-Badge--</option>
+                      {% for i in badge %}
+                        <option value="{{ i.badge }}" >{{ i.badge }}</option>
+                      {% endfor %}
+                    </select>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-12 ms-auto" style="margin-top: 25px;">
+                <button type="submit" class="form-control" style="position: relative;right: 340px;">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

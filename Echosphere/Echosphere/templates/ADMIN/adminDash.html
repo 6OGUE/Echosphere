@@ -1,0 +1,182 @@
+{% for message in messages %}
+  <script>
+    alert('{{message}}')
+  </script>
+{% endfor %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>ECHOSPHERE</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}" />
+
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin />
+
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Sono:wght@200;300;400;500;700&display=swap' %}" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-icons.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}" />
+
+    <link href="{% static 'css/templatemo-pod-talk.css' %}" rel="stylesheet" />
+
+    <!-- 
+
+TemplateMo 584 Pod Talk
+
+https://templatemo.com/tm-584-pod-talk
+
+ -->
+  </head>
+
+  <body style="background-image: url('../static/images/poii.jpg');  "></body>
+    <main>
+      <nav class="navbar navbar-expand-lg" style="background-image: url('../static/images/ftr.jpg'); height: 178px;">
+        <div class="container">
+          <a href="#" style="font-size: 50px;color: rgb(252, 252, 252);position: relative;right: 300px;top:10px;"><b>ECHOSPHERE</b>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span></button>
+
+          <div class="collapse navbar-collapse" id="navbarNav" style="position: relative;left:300px;">
+            <ul class="navbar-nav ms-lg-auto">
+           
+              <li class="nav-item">
+                <a class="btn custom-btn custom-border-btn smoothscroll" href="/adminDash" style="color: rgb(218, 34, 34);font-size: 25px;">HOME</a>&nbsp;&nbsp;&nbsp;
+              </li>
+  
+              <li class="nav-item">
+                <a class="btn custom-btn custom-border-btn smoothscroll" href="/viewUsers" style="color: rgb(215, 44, 44);font-size: 25px;">VIEW USERS</a>&nbsp;&nbsp;&nbsp;
+              </li>
+  
+              <li class="nav-item">
+                <a class="btn custom-btn custom-border-btn smoothscroll" href="/request" style="color: rgb(215, 31, 31);font-size: 25px;">REQUESTS</a>&nbsp;&nbsp;&nbsp;
+              </li>
+  
+              <li class="nav-item dropdown">
+                <a class="btn custom-btn custom-border-btn smoothscroll" href="#" style="color: rgb(214, 35, 35);font-size: 25px;">BADGE</a>
+  
+                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                  <li>
+                    <a class="dropdown-item" href="/createBadge">Create Badge</a>
+                  </li>
+  
+                  <li>
+                    <a class="dropdown-item" href="/viewBadge">View Badge</a>
+                  </li>
+  
+                 
+                </ul>
+              </li> 
+  
+              {% comment %} <li class="nav-item">
+                <a class="nav-link" href="/createBadge">Create Badge</a>
+              </li> {% endcomment %}
+            </ul>
+  
+            <div class="ms-4">
+              <a class="btn custom-btn custom-border-btn smoothscroll" href="/" style="color: rgb(207, 50, 50);font-size: 25px;">LOG OUT</a>&nbsp;&nbsp;
+            </div>
+            <ul class="navbar-nav ms-lg-auto">
+
+              <li class="nav-item">
+                <a class="nav-link active" style="font-weight: 900;font-size: 25px; color: red;position: relative;left:70px;" >🧑🏻 ADMIN</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section class="hero-section">
+        <div class="container">
+        </div>
+      </section>
+
+   
+
+<section class="trending-podcast-section section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-12">
+        <div class="section-title-wrap mb-5">
+          <h4 class="section-title" style="position: relative;left:600px;">FEEDS</h4>
+        </div>
+      </div>
+      {% for i in post %}
+      {% if i.registerId.type != 'Banned' %}
+
+      <div class="col-lg-4 col-12 mb-4 mb-lg-0" style="margin-top: 20px;">
+        <div class="custom-block custom-block-full">
+          <h5 class="mb-2" style="color: black;"><a href="#">{{ i.registerId.name }}</a></h5>
+
+          <div class="custom-block-image-wrap">
+            <a href="#"><img src= '../static/media/{{i.image}}' class="custom-block-image img-fluid" alt="" /></a>
+          </div>
+
+          <div class="custom-block-info">
+            <h5 class="mb-2">
+              <a href="#">{{ i.title }}</a>
+              <span style="float: right; color: red;" id="delete"> 
+                <a href="/deletepost?id={{ i.id }}">DELETE</a> 
+              </span>
+            
+            </h5>
+
+            <div class="profile-block d-flex">
+
+              <p>
+                {{ i.tag }}
+              </p>
+            </div>
+
+            {% comment %} <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p> {% endcomment %}
+
+            <div class="custom-block-bottom d-flex justify-content-between mt-3">
+              {% comment %} <a href="#" class="bi-headphones me-1"><span>100k</span></a> {% endcomment %}
+
+              <a href="#" class="bi-heart me-1"><span>{{ i.like_count }}</span></a>
+
+              <a href="/admincomment?id={{i.id}}" class="bi-chat me-1"><span>{{ i.comment }}</span></a>
+
+              <a href="#" class="bi-report me-1"><span>⚠️{{ i.report_count }}</span></a>
+
+            </div>
+
+            <div class="custom-block-bottom d-flex justify-content-between mt-3">
+              
+            </div>
+          </div>
+
+    
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      
+    </div>
+  </div>
+</section>
+    </main>
+
+    
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/custom.js"></script>
+  </body>
+</html>
