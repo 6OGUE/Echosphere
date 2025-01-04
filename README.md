@@ -8,6 +8,8 @@ A dynamic social community platform designed to enhance user engagement and inte
 
 
 
+
+
 📝 User Interaction: Create posts, like, comment, and engage with content.
 
 🏅 Achievement Badges: Earn badges for active participation and community involvement.
