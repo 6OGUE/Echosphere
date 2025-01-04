@@ -3,7 +3,10 @@ Echosphere | Social Community Platform 🌐
 Welcome to Echosphere, a dynamic social community platform designed to enhance user engagement and interaction! 🌟
 
 
+
 🚀 Features:
+
+
 
 📝 User Interaction: Create posts, like, comment, and engage with content.
 
@@ -18,6 +21,7 @@ Welcome to Echosphere, a dynamic social community platform designed to enhance u
 
 🎯 Project Purpose:
 This mini-project showcases the essential features of an e-commerce platform, offering a hands-on experience with inventory management, user interactions, and basic service functionalities. Perfect for learning, experimenting, and having fun with coding!
+
 
 Explore, contribute, and customize the platform as you like. 🌈
 (Note: Feel free to tweak and expand the project based on your needs)
